@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src= "angular.min.js"></script>
+		<script src= "app.js"></script>
+	</head>
+	<body ng-app = "DIApp">
+		<h1>Dependency Injection in Angular JS</h1>
+		<div ng-controller= "DIController">
+			Your Name:
+			<input type="text" ng-model = "name" ng-blur="upper();">
+		</div>
+	</body>
+</html>
