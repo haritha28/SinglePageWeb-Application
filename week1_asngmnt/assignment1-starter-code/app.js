@@ -1,18 +1,31 @@
 (function () {
 
-	var myapp = angular.module("LunchBox", []);
+	var myapp = angular.module('LunchBox', [])
 
-	myapp.controller("LunchBoxController", ['$scope', Checktoomuch]);
+	myapp.controller('LunchBoxController', Checktoomuch);
 
-	function Checktoomuch($scope) {
-		var length = $scope.lunchmenu.length;
-		if (length <= 3) {
-			return "Enjoy"
+	Checktoomuch.$inject = ['$scope','$filter'];
+	
+	function Checktoomuch () {
+
+		var lunch = $scope.lunchmenu.trim();
+
+
+		var items = lunch.split(',');
+		if(items.length == 0) {
+			return ("ADD ITEMS");
 		}
-		else {
-			return "Toomuch"
+
+		if(items.length <= 3) {
+			return ("ENJOY!");
 		}
-	}
+
+		if(items.length >= 3) {
+			return ("TOO BAD");
+		}
+	} 
+
+	
 
 
 })();
